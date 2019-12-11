@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/skitiz/discord-jerome-bot#readme",
   "dependencies": {
+    "@discordjs/uws": "^10.149.0",
+    "bufferutil": "^4.0.1",
+    "core-util-is": "^1.0.2",
+    "discord": "^0.8.2",
     "discord.js": "^11.5.1",
+    "node-opus": "^0.3.3",
     "ytdl-core": "^1.0.3"
   }
 }
