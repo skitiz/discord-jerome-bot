@@ -1,0 +1,24 @@
+{
+  "name": "discord-jerome-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skitiz/discord-jerome-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skitiz/discord-jerome-bot/issues"
+  },
+  "homepage": "https://github.com/skitiz/discord-jerome-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "ytdl-core": "^1.0.3"
+  }
+}
