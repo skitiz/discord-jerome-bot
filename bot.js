@@ -21,12 +21,7 @@ client.on('message', async msg => {
     if(command === 'ban') {
         if(msg.mentions.users.first()){
             let user = msg.mentions.members.first();
-            user.kick();
-        }
-    }
-    if(command === 'test'){
-        //Check if the channel exists.
-        msg.member.voiceChannel.join().
+            msg.member.voiceChannel.join().
         then(connection => {
             console.log('Connected!')
             const dispatcher = connection.playFile('./audio.mp3');
@@ -34,8 +29,7 @@ client.on('message', async msg => {
                 msg.member.voiceChannel.leave();
             });
         }).catch(err => console.log(err));
-    }
-    else {
-        msg.reply('Join a voice channel first.');
+            user.kick();
+        }
     }
 });
