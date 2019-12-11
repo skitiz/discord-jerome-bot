@@ -1,6 +1,8 @@
 // TODO:
 //  Make the bot server only.
 //  Timer on how many messages it takes.
+//  Add role based permissions.
+//  Host onto heroku.
 //
 
 const Discord = require('discord.js');
@@ -18,7 +20,7 @@ client.on('message', async msg => {
     if(!msg.content.startsWith('?') || msg.author.bot) return;
     const args = msg.content.slice(1).split(' ');
     const command = args.shift().toLowerCase();
-    if(command === 'ban') {
+    if(command === 'kiss') {
         if(msg.mentions.users.first()){
             let user = msg.mentions.members.first();
             msg.member.voiceChannel.join().
