@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 client.login(auth.token);
 
+
 client.on('message', async msg => {
     if(!msg.content.startsWith('?') || msg.author.bot) return;
     const args = msg.content.slice(1).split(' ');
@@ -33,5 +34,14 @@ client.on('message', async msg => {
         }).catch(err => console.log(err));
             user.kick();
         }
+    }
+    if(command === 'help') {
+            msg.channel.send("Hello, to issue commands to me, please preface your commands with `?`. You can try: ?kiss, ?start, ?shoot (row, column), ?" +
+            "\n I can kiss members or play battleship" +
+            "with you.");
+    }
+    if(command === 'start') {
+            msg.channel.send("Hello, lets play a game of battleship. Lets start by placing your ships. \nWhat would you like to place first?" +
+    "A. 4 tile ship B. 4 tile ship. 3 tile ship.");
     }
 });
