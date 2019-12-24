@@ -6,6 +6,7 @@
 //
 
 const Discord = require('discord.js');
+const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
 const auth = require('./auth.json');
@@ -27,21 +28,13 @@ client.on('message', async msg => {
             msg.member.voiceChannel.join().
         then(connection => {
             console.log('Connected!')
-            const dispatcher = connection.playFile('./audio.mp3');
+            const stream = ytdl('https://www.youtube.com/watch?v=PFZrO6UDjP8', { filter : 'audioonly' });
+            const dispatcher = connection.playStream(stream, streamOptions);
             dispatcher.on("end", end => {
                 msg.member.voiceChannel.leave();
             });
         }).catch(err => console.log(err));
             user.kick();
         }
-    }
-    if(command === 'help') {
-            msg.channel.send("Hello, to issue commands to me, please preface your commands with `?`. You can try: ?kiss, ?start, ?shoot (row, column), ?" +
-            "\n I can kiss members or play battleship" +
-            "with you.");
-    }
-    if(command === 'start') {
-            msg.channel.send("Hello, lets play a game of battleship. Lets start by placing your ships. \nWhat would you like to place first?" +
-    "A. 4 tile ship B. 4 tile ship. 3 tile ship.");
     }
 });
