@@ -13,10 +13,21 @@ const auth = require('./auth.json');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    var date = new Date();
+    client.setInterval(function(){
+        let birthdays = new Map();
+        birthdays.set('12-28', 'Will');
+        birthdays.set('1-1', 'Jake');
+        birthdays.set('8-21', 'George');
+        birthdays.set('1-4', 'Aku');
+        if(birthdays.has(String((date.getMonth() + 1 )+ '-' + date.getDate()))){
+            console.log("'" + (date.getMonth() + 1) + '-' + date.getDate() + "'");
+            client.channels.get('653784594654691348').send("Happy birthday " + birthdays.get(String((date.getMonth() + 1) + '-' + date.getDate())) + "!");
+        }
+    }, 86400);
 });
 
 client.login(auth.token);
-
 
 client.on('message', async msg => {
     if(!msg.content.startsWith('?') || msg.author.bot) return;
@@ -47,3 +58,6 @@ client.on('message', async msg => {
     "A. 4 tile ship B. 4 tile ship. 3 tile ship.");
     }
 });
+
+
+
